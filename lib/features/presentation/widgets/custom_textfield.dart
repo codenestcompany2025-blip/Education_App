@@ -18,7 +18,7 @@ class CustomTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text!,
-      style: TextStyle(color: color, fontSize: size, fontFamily: font),
+      style: TextStyle(color: color, fontSize: size, fontFamily: font,fontWeight: FontWeight.bold),
     );
   }
 }

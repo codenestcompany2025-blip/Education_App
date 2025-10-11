@@ -35,6 +35,7 @@ flutter:
     - assets/images/onboarding/
     - assets/images/auth/
     - assets/images/choosespeclization/
+    - assets/images/homeandother/
   fonts:
     - family: Cairo
       fonts:

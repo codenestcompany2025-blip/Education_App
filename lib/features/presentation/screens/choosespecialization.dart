@@ -1,3 +1,4 @@
+import 'package:eduaction_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/constants/colors.dart';
@@ -12,7 +13,7 @@ class Choosespecialization extends StatefulWidget {
 }
 
 class _ChoosespecializationState extends State<Choosespecialization> {
-  String _selectedSection = 'علمي'; // القيمة الافتراضية
+  String _selectedSection = 'علمي';
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +63,9 @@ class _ChoosespecializationState extends State<Choosespecialization> {
             ),SizedBox(height: 50,),
             CustomButton(
               text: 'تاكيد',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.homePage);
+              },
               backgr: blueColor,
               color: whiteColor,
               width: 343,
