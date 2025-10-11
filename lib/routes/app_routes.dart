@@ -2,7 +2,9 @@ import 'package:eduaction_app/features/auth/screens/signup.dart';
 import 'package:eduaction_app/features/onboarding/data/screen/SecondScreen.dart';
 import 'package:eduaction_app/features/onboarding/data/screen/ThirdScreen.dart';
 import 'package:eduaction_app/features/presentation/screens/choosespecialization.dart';
+import 'package:eduaction_app/features/presentation/screens/detailesofteacher.dart';
 import 'package:eduaction_app/features/presentation/screens/homepage.dart';
+import 'package:eduaction_app/features/presentation/screens/modulespage.dart';
 import 'package:flutter/material.dart';
 
 import '../features/auth/screens/afteronboarding.dart';
@@ -28,46 +30,85 @@ class AppRoutes {
   static const String chooseSpecialization = '/chooseSpecialization';
   static const String homePage = '/homePage';
   static const String sections = '/sections';
+  static const String detailsOfTeacher = '/detailsOfTeacher';
+  static const String modulesPage = '/modulesPage';
+
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case onboarding:
         return MaterialPageRoute(builder: (_) => const OnboardingScreen());
+
       case firstScreen:
         return MaterialPageRoute(builder: (_) => const FirstScreen());
+
       case secondScreen:
         return MaterialPageRoute(builder: (_) => const Secondscreen());
+
       case thirdScreen:
         return MaterialPageRoute(builder: (_) => const Thirdscreen());
+
       case afterOnBoarding:
         return MaterialPageRoute(builder: (_) => const AfterOnBoarding());
+
       case forgetPassword:
         return MaterialPageRoute(builder: (_) => const ForgetPassword());
+
       case verifyCode:
         return MaterialPageRoute(builder: (_) => const VerifyCode());
+
       case resetPassword:
-        return MaterialPageRoute(builder: (_)=>const ResetPassword());
+        return MaterialPageRoute(builder: (_) => const ResetPassword());
+
       case chooseSpecialization:
-        return MaterialPageRoute(builder: (_)=>const Choosespecialization());
+        return MaterialPageRoute(builder: (_) => const Choosespecialization());
+
       case homePage:
-        return MaterialPageRoute(builder: (_)=>const Homepage());
+        return MaterialPageRoute(builder: (_) => const Homepage());
+
+      case sections:
+        return MaterialPageRoute(builder: (_) => const Sections());
+
+      case detailsOfTeacher:
+        final args = settings.arguments as Map<String, dynamic>? ?? {};
+        final name = args['name'] ?? '';
+        final imagePath = args['imagePath'] ?? '';
+
+        return MaterialPageRoute(
+          builder: (_) => Detailesofteacher(
+            name: name,
+            imagePath: imagePath,
+          ),
+        );
+
+      case modulesPage:
+        final args = settings.arguments as Map<String, dynamic>? ?? {};
+        final teacherName = args['name'] ?? '';
+        final imagePath = args['image'] ?? '';
+
+        return MaterialPageRoute(
+          builder: (_) => ModulesPage(
+            teacherName: teacherName,
+            imagePath: imagePath,
+          ),
+        );
+
       case login:
-        final userType =
-            settings.arguments as String?; // استقبل النوع من الـ arguments
+        final userType = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (_) => SignInScreen(userType: userType ?? 'tawjehi'),
         );
+
       case signup:
-        final userType =
-            settings.arguments as String?; // استقبل النوع من الـ arguments
+        final userType = settings.arguments as String?;
         return MaterialPageRoute(
           builder: (_) => SignUpScreen(userType: userType ?? 'tawjehi'),
         );
-      case sections:
-        return MaterialPageRoute(builder: (_)=>const Sections());
+
       default:
         return MaterialPageRoute(
-          builder: (_) =>
-              const Scaffold(body: Center(child: Text('صفحة غير موجودة'))),
+          builder: (_) => const Scaffold(
+            body: Center(child: Text('صفحة غير موجودة')),
+          ),
         );
     }
   }

@@ -2,7 +2,9 @@ import 'package:eduaction_app/features/presentation/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:eduaction_app/features/presentation/widgets/custom_textfield.dart';
 import 'package:eduaction_app/core/constants/colors.dart';
+import '../../../routes/app_routes.dart';
 import '../widgets/teacheroptioncard.dart';
+import 'detailesofteacher.dart';
 
 class TeachersOfMaterial extends StatefulWidget {
   final String materialName;
@@ -21,34 +23,18 @@ class _TeachersOfMaterialState extends State<TeachersOfMaterial>
   late Animation<Offset> _slideAnimation;
 
   final List<Map<String, String>> teachers = [
-    {
-      'name': 'سامي أحمد',
-      'image': 'assets/images/choosespeclization/profile.png',
-    },
-    {
-      'name': 'محمود رامي',
-      'image': 'assets/images/choosespeclization/profile.png',
-    },
-    {
-      'name': 'عبد الكريم رامي',
-      'image': 'assets/images/choosespeclization/profile.png',
-    },
-    {
-      'name': 'أحمد بسام',
-      'image': 'assets/images/choosespeclization/profile.png',
-    },
+    {'name': 'سامي أحمد', 'image': 'assets/images/choosespeclization/profile.png'},
+    {'name': 'محمود رامي', 'image': 'assets/images/choosespeclization/profile.png'},
+    {'name': 'عبد الكريم رامي', 'image': 'assets/images/choosespeclization/profile.png'},
+    {'name': 'أحمد بسام', 'image': 'assets/images/choosespeclization/profile.png'},
   ];
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 400),
-    );
+    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 400));
 
     _fadeAnimation = CurvedAnimation(parent: _controller, curve: Curves.easeIn);
-
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0, 0.2),
       end: Offset.zero,
@@ -87,9 +73,10 @@ class _TeachersOfMaterialState extends State<TeachersOfMaterial>
         child: Column(
           children: [
             const SizedBox(height: 10),
+
             ...List.generate(
               teachers.length,
-              (index) => Padding(
+                  (index) => Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: TeacherOptionCard(
                   name: teachers[index]['name']!,
@@ -101,6 +88,8 @@ class _TeachersOfMaterialState extends State<TeachersOfMaterial>
             ),
 
             const SizedBox(height: 25),
+
+            // 🔘 زر التأكيد
             AnimatedBuilder(
               animation: _controller,
               builder: (context, child) {
@@ -116,21 +105,15 @@ class _TeachersOfMaterialState extends State<TeachersOfMaterial>
                 text: 'تأكيد',
                 onPressed: selectedIndex != -1
                     ? () {
-                        final teacherName = teachers[selectedIndex]['name'];
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            backgroundColor: blueColor,
-                            content: Text(
-                              'تم اختيار $teacherName',
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontFamily: 'Cairo-Bold',
-                                fontSize: 16,
-                              ),
-                            ),
-                          ),
-                        );
-                      }
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.modulesPage,
+                    arguments: {
+                      'name': teachers[selectedIndex]['name'],
+                      'image': teachers[selectedIndex]['image'],
+                    },
+                  );
+                }
                     : null,
                 backgr: blueColor,
                 color: Colors.white,
