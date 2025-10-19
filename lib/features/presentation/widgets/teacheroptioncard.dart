@@ -26,7 +26,7 @@ class TeacherOptionCard extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? blueColor : Colors.grey.shade300,
+            color: isSelected ? AppColors.blueColor : Colors.grey.shade300,
             width: 2,
           ),
           boxShadow: [
@@ -46,7 +46,7 @@ class TeacherOptionCard extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSelected ? blueColor : Colors.grey,
+                  color: isSelected ? AppColors.blueColor : Colors.grey,
                   width: 2,
                 ),
               ),
@@ -57,7 +57,7 @@ class TeacherOptionCard extends StatelessWidget {
                   height: 10,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
-                    color: blueColor,
+                    color: AppColors.blueColor,
                   ),
                 ),
               )

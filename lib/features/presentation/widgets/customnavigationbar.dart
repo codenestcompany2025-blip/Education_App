@@ -61,14 +61,14 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                   children: [
                     Icon(
                       item['icon'],
-                      color: isSelected ? blueColor : Colors.grey[700],
+                      color: isSelected ? AppColors.blueColor : Colors.grey[700],
                       size: 26,
                     ),
                     const SizedBox(height: 4),
                     Text(
                       item['label'],
                       style: TextStyle(
-                        color: isSelected ? blueColor : Colors.grey[700],
+                        color: isSelected ? AppColors.blueColor : Colors.grey[700],
                         fontFamily: 'Cairo-Bold',
                         fontSize: 13,
                       ),
@@ -94,7 +94,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
                 width: 65,
                 height: 65,
                 decoration: const BoxDecoration(
-                  color: blueColor,
+                  color: AppColors.blueColor,
                   shape: BoxShape.circle,
                   boxShadow: [
                     BoxShadow(

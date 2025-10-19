@@ -1,6 +1,6 @@
+import 'package:eduaction_app/core/constants/colors.dart';
 import 'package:eduaction_app/features/presentation/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
-import 'package:eduaction_app/core/constants/colors.dart';
 
 class TeacherDetailsCard extends StatelessWidget {
   final String name;
@@ -26,20 +26,14 @@ class TeacherDetailsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        constraints: const BoxConstraints(
-          maxWidth: 360,
-        ),
+        constraints: const BoxConstraints(maxWidth: 360),
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(18),
           boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.08),
-              blurRadius: 12,
-              offset: const Offset(0, 4),
-            ),
+            BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 12, offset: const Offset(0, 4)),
           ],
         ),
 
@@ -49,33 +43,16 @@ class TeacherDetailsCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  radius: 28,
-                  backgroundImage: AssetImage(imagePath),
-                ),
+                CircleAvatar(radius: 28, backgroundImage: AssetImage(imagePath)),
                 const SizedBox(width: 12),
-                CustomTextField(text: name,
-                  font: 'Cairo-Bold',
-                  size: 18,
-                  color: blueColor,)
-
+                customTextField(text: name, size: 18, color: AppColors.blueColor),
               ],
             ),
 
             const SizedBox(height: 20),
-            const CustomTextField(
-              text: 'نبذة عنه',
-              font: 'Cairo-Bold',
-              size: 15,
-              color: Colors.black,
-            ),
+            customTextField(text: 'نبذة عنه', size: 15, color: Colors.black),
             const SizedBox(height: 6),
-            CustomTextField(
-              text: bio,
-              font: 'Cairo-Regular',
-              size: 14,
-              color: Colors.black,
-            ),
+            customTextField(text: bio, size: 14, color: Colors.black),
 
             const SizedBox(height: 20),
 
@@ -94,15 +71,8 @@ class TeacherDetailsCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 child: Container(
                   padding: const EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: blueColor.withOpacity(0.1),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.chat_outlined,
-                    color: blueColor,
-                    size: 26,
-                  ),
+                  decoration: BoxDecoration(color: AppColors.blueColor.withValues(alpha: 0.1), shape: BoxShape.circle),
+                  child: const Icon(Icons.chat_outlined, color: AppColors.blueColor, size: 26),
                 ),
               ),
             ),
@@ -111,22 +81,17 @@ class TeacherDetailsCard extends StatelessWidget {
       ),
     );
   }
-  Widget _infoRow(IconData icon, String text) {
-    return Padding(
+
+  Widget _infoRow(IconData icon, String text) => Padding(
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: Row(
         children: [
-          Icon(icon, color: blueColor, size: 20),
+          Icon(icon, color: AppColors.blueColor, size: 20),
           const SizedBox(width: 10),
           Expanded(
-            child:
-            CustomTextField(text: text,
-            font:'Cairo-Regular' ,
-              size: 14,
-            color: Colors.black,)
+            child: customTextField(text: text, size: 14, color: Colors.black),
           ),
         ],
       ),
     );
   }
-}

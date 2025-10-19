@@ -80,7 +80,7 @@ class LessonProgressCard extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: LinearProgressIndicator(
               value: progress,
-              color: blueColor,
+              color: AppColors.blueColor,
               backgroundColor: Colors.grey[300],
               minHeight: 4,
               borderRadius: BorderRadius.circular(10),

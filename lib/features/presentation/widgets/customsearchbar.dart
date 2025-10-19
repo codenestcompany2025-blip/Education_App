@@ -28,7 +28,7 @@ class CustomSearchBar extends StatelessWidget {
             Row(
               children: const [
                 SizedBox(width: 10),
-                Icon(Icons.search, color: blueColor, size: 23),
+                Icon(Icons.search, color: AppColors.blueColor, size: 23),
                 SizedBox(width: 10),
                 Text(
                   'بحث',
@@ -41,7 +41,7 @@ class CustomSearchBar extends StatelessWidget {
               ],
             ),
             IconButton(
-              icon: const Icon(Icons.tune, color: blueColor, size: 24),
+              icon: const Icon(Icons.tune, color: AppColors.blueColor, size: 24),
               onPressed: onFilterTap,
             ),
 
