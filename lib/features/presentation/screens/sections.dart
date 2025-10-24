@@ -1,8 +1,7 @@
 import 'package:eduaction_app/features/presentation/screens/teachers_of_material.dart';
+import 'package:flutter/material.dart';
 import 'package:eduaction_app/features/presentation/widgets/cardofmaterial.dart';
 import 'package:eduaction_app/features/presentation/widgets/custom_textfield.dart';
-import 'package:flutter/material.dart';
-
 class Sections extends StatefulWidget {
   const Sections({super.key});
 
@@ -26,7 +25,11 @@ class _SectionsState extends State<Sections> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: customTextField(text: 'المواد الدراسية', size: 20),
+        title:  customTextField(
+          text: 'المواد الدراسية',
+
+          size: 20,
+        ),
         centerTitle: true,
         automaticallyImplyLeading: true,
       ),
@@ -48,7 +51,10 @@ class _SectionsState extends State<Sections> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => TeachersOfMaterial(materialName: material['name']!)),
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        TeachersOfMaterial(materialName: material['name']!),
+                  ),
                 );
               },
             );

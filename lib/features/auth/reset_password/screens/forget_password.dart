@@ -1,9 +1,10 @@
 import 'package:eduaction_app/core/routes/app_routes.dart';
-import 'package:eduaction_app/features/presentation/widgets/custom_textfield.dart';
-import 'package:eduaction_app/features/presentation/widgets/customedittext.dart';
 import 'package:flutter/material.dart';
 
 import '../../../presentation/widgets/buttons.dart';
+import '../../../presentation/widgets/custom_textfield.dart';
+import '../../../presentation/widgets/customedittext.dart';
+
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});

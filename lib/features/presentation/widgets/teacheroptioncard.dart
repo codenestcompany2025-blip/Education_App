@@ -23,10 +23,10 @@ class TeacherOptionCard extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: isSelected ? AppColors.blueColor : Colors.grey.shade300,
+            color: isSelected ? AppColors.blueColor : AppColors.grayColor,
             width: 2,
           ),
           boxShadow: [
@@ -46,7 +46,7 @@ class TeacherOptionCard extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isSelected ? AppColors.blueColor : Colors.grey,
+                  color: isSelected ? AppColors.blueColor : AppColors.grayColor,
                   width: 2,
                 ),
               ),
@@ -75,7 +75,7 @@ class TeacherOptionCard extends StatelessWidget {
                     width: 45,
                     height: 45,
                     color: Colors.grey.shade200,
-                    child: const Icon(Icons.person, color: Colors.grey),
+                    child: const Icon(Icons.person, color: AppColors.grayColor),
                   );
                 },
               ),
@@ -88,7 +88,7 @@ class TeacherOptionCard extends StatelessWidget {
                 style: const TextStyle(
                   fontFamily: 'Cairo-Bold',
                   fontSize: 16,
-                  color: Colors.black87,
+                  color: AppColors.blackColor,
                 ),
               ),
             ),

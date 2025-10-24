@@ -80,10 +80,7 @@ class _TeachersOfMaterialState extends State<TeachersOfMaterial> with SingleTick
                 ),
               ),
             ),
-
             const SizedBox(height: 25),
-
-            // 🔘 زر التأكيد
             AnimatedBuilder(
               animation: _controller,
               builder: (context, child) {
@@ -94,22 +91,23 @@ class _TeachersOfMaterialState extends State<TeachersOfMaterial> with SingleTick
               },
               child: AppButtons.primaryButton(
                 text: 'تأكيد',
-                onPressed: () => selectedIndex != -1
+                onPressed: selectedIndex != -1
                     ? () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRoutes.modulesPage,
-                          arguments: {
-                            'name': teachers[selectedIndex]['name'],
-                            'image': teachers[selectedIndex]['image'],
-                          },
-                        );
-                      }
-                    : null,
+                  Navigator.pushNamed(
+                    context,
+                    AppRoutes.detailsOfTeacher,
+                    arguments: {
+                      'name': teachers[selectedIndex]['name'],
+                      'image': teachers[selectedIndex]['image'],
+                    },
+                  );
+                }
+                    : () {}, // تقدر تخليها null إذا بدك الزر يتعطل
                 width: double.infinity,
                 borderRadius: 8,
               ),
             ),
+
           ],
         ),
       ),

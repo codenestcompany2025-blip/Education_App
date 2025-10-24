@@ -12,6 +12,7 @@ import '../../features/auth/login/screens/signin_screen.dart';
 import '../../features/auth/otp/screens/verify_code.dart';
 import '../../features/auth/reset_password/screens/forget_password.dart';
 import '../../features/presentation/screens/sections.dart';
+import '../../features/presentation/screens/unit_content_page.dart';
 
 class AppRoutes {
   static const String onboarding = '/onboardingScreen';
@@ -26,6 +27,7 @@ class AppRoutes {
   static const String sections = '/sections';
   static const String detailsOfTeacher = '/detailsOfTeacher';
   static const String modulesPage = '/modulesPage';
+  static const String unitContentPage = '/unitContentPage';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -56,7 +58,7 @@ class AppRoutes {
       case detailsOfTeacher:
         final args = settings.arguments as Map<String, dynamic>? ?? {};
         final name = args['name'] ?? '';
-        final imagePath = args['imagePath'] ?? '';
+        final imagePath = args['image'] ?? '';
 
         return MaterialPageRoute(
           builder: (_) => Detailesofteacher(name: name, imagePath: imagePath),
@@ -78,6 +80,21 @@ class AppRoutes {
       case signup:
         final userType = settings.arguments as String?;
         return MaterialPageRoute(builder: (_) => SignUpScreen(userType: userType ?? 'tawjehi'));
+      case unitContentPage:
+        final args = settings.arguments as Map<String, dynamic>? ?? {};
+        final subjectName = args['subjectName'] ?? '';
+        final unitName = args['unitName'] ?? '';
+        final teacherName = args['teacherName'] ?? '';
+        final imagePath = args['imagePath'] ?? '';
+
+        return MaterialPageRoute(
+          builder: (_) => UnitContentPage(
+            subjectName: subjectName,
+            unitName: unitName,
+            teacherName: teacherName,
+            imagePath: imagePath,
+          ),
+        );
 
       default:
         return MaterialPageRoute(

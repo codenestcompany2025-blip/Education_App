@@ -30,7 +30,7 @@ class TeacherDetailsCard extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         margin: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.whiteColor,
           borderRadius: BorderRadius.circular(18),
           boxShadow: [
             BoxShadow(color: Colors.black.withValues(alpha: 0.08), blurRadius: 12, offset: const Offset(0, 4)),
@@ -50,9 +50,9 @@ class TeacherDetailsCard extends StatelessWidget {
             ),
 
             const SizedBox(height: 20),
-            customTextField(text: 'نبذة عنه', size: 15, color: Colors.black),
+            customTextField(text: 'نبذة عنه', size: 15, color: AppColors.blackColor),
             const SizedBox(height: 6),
-            customTextField(text: bio, size: 14, color: Colors.black),
+            customTextField(text: bio, size: 14, color: AppColors.blackColor),
 
             const SizedBox(height: 20),
 
@@ -63,7 +63,7 @@ class TeacherDetailsCard extends StatelessWidget {
 
             const SizedBox(height: 16),
             Align(
-              alignment: Alignment.center,
+              alignment: Alignment.bottomLeft,
               child: InkWell(
                 onTap: () {
                   // TODO: Add your chat navigation here
@@ -89,7 +89,7 @@ class TeacherDetailsCard extends StatelessWidget {
           Icon(icon, color: AppColors.blueColor, size: 20),
           const SizedBox(width: 10),
           Expanded(
-            child: customTextField(text: text, size: 14, color: Colors.black),
+            child: customTextField(text: text, size: 14, color: AppColors.blackColor),
           ),
         ],
       ),

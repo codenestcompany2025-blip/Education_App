@@ -1,6 +1,7 @@
 import 'package:eduaction_app/features/presentation/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/routes/app_routes.dart';
 import '../widgets/customsearchbar.dart';
 import '../widgets/customsectiontitle.dart';
 import '../widgets/customunitbutton.dart';
@@ -43,10 +44,55 @@ class _ModulesPageState extends State<ModulesPage> {
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Column(
                 children: [
-                  UnitButton(text: 'الوحدة الأولى', onPressed: () {}),
-                  UnitButton(text: 'الوحدة الثانية', onPressed: () {}),
-                  UnitButton(text: 'الوحدة الثالثة', onPressed: () {}),
-                  UnitButton(text: 'الوحدة الرابعة', onPressed: () {}),
+                  UnitButton(text: 'الوحدة الأولى', onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.unitContentPage,
+                      arguments: {
+                        'subjectName': 'الرياضيات',
+                        'unitName': 'الوحدة الأولى',
+                        'teacherName': widget.teacherName,
+                        'imagePath': widget.imagePath,
+                      },
+                    );
+                  }),
+                  UnitButton(text: 'الوحدة الثانية', onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.unitContentPage,
+                      arguments: {
+                        'subjectName': 'الرياضيات',
+                        'unitName': 'الوحدة الثانية',
+                        'teacherName': widget.teacherName,
+                        'imagePath': widget.imagePath,
+                      },
+                    );
+
+                  }),
+                  UnitButton(text: 'الوحدة الثالثة', onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.unitContentPage,
+                      arguments: {
+                        'subjectName': 'الرياضيات',
+                        'unitName': 'الوحدة الثالثة',
+                        'teacherName': widget.teacherName,
+                        'imagePath': widget.imagePath,
+                      },
+                    );
+                  }),
+                  UnitButton(text: 'الوحدة الرابعة', onPressed: () {
+                    Navigator.pushNamed(
+                      context,
+                      AppRoutes.unitContentPage,
+                      arguments: {
+                        'subjectName': 'الرياضيات',
+                        'unitName': 'الوحدة الرابعة',
+                        'teacherName': widget.teacherName,
+                        'imagePath': widget.imagePath,
+                      },
+                    );
+                  }),
                 ],
               ),
             ),
